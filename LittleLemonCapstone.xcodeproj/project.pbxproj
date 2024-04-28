@@ -10,6 +10,7 @@
 		A8DA00082BDECC6600A74683 /* LittleLemonCapstoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00072BDECC6600A74683 /* LittleLemonCapstoneTests.swift */; };
 		A8DA00122BDECC6600A74683 /* LittleLemonCapstoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00112BDECC6600A74683 /* LittleLemonCapstoneUITests.swift */; };
 		A8DA00142BDECC6600A74683 /* LittleLemonCapstoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00132BDECC6600A74683 /* LittleLemonCapstoneUITestsLaunchTests.swift */; };
+		A8DA00212BDECD5700A74683 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00202BDECD5700A74683 /* Onboarding.swift */; };
 		A8DAFFF22BDECC6400A74683 /* LittleLemonCapstoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAFFF12BDECC6400A74683 /* LittleLemonCapstoneApp.swift */; };
 		A8DAFFF42BDECC6400A74683 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAFFF32BDECC6400A74683 /* ContentView.swift */; };
 		A8DAFFF62BDECC6600A74683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8DAFFF52BDECC6600A74683 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		A8DA000D2BDECC6600A74683 /* LittleLemonCapstoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleLemonCapstoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DA00112BDECC6600A74683 /* LittleLemonCapstoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonCapstoneUITests.swift; sourceTree = "<group>"; };
 		A8DA00132BDECC6600A74683 /* LittleLemonCapstoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonCapstoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A8DA00202BDECD5700A74683 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		A8DAFFEE2BDECC6400A74683 /* LittleLemonCapstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemonCapstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DAFFF12BDECC6400A74683 /* LittleLemonCapstoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonCapstoneApp.swift; sourceTree = "<group>"; };
 		A8DAFFF32BDECC6400A74683 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				A8DAFFF12BDECC6400A74683 /* LittleLemonCapstoneApp.swift */,
 				A8DAFFF32BDECC6400A74683 /* ContentView.swift */,
+				A8DA00202BDECD5700A74683 /* Onboarding.swift */,
 				A8DAFFF52BDECC6600A74683 /* Assets.xcassets */,
 				A8DAFFFA2BDECC6600A74683 /* Persistence.swift */,
 				A8DAFFFC2BDECC6600A74683 /* LittleLemonCapstone.xcdatamodeld */,
@@ -274,6 +277,7 @@
 			files = (
 				A8DAFFFE2BDECC6600A74683 /* LittleLemonCapstone.xcdatamodeld in Sources */,
 				A8DAFFFB2BDECC6600A74683 /* Persistence.swift in Sources */,
+				A8DA00212BDECD5700A74683 /* Onboarding.swift in Sources */,
 				A8DAFFF42BDECC6400A74683 /* ContentView.swift in Sources */,
 				A8DAFFF22BDECC6400A74683 /* LittleLemonCapstoneApp.swift in Sources */,
 			);
