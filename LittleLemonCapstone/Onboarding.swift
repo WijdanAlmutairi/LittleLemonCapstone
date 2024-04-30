@@ -10,6 +10,7 @@ import SwiftUI
 let kFirstName = "first name key"
 let kLastName = "last name key"
 let kEmail = "email key"
+let kIsLoggedIn = "kIsLoggedIn"
 
 
 struct Onboarding: View {
@@ -45,6 +46,8 @@ struct Onboarding: View {
                         UserDefaults.standard.set(lastName, forKey: kLastName)
                         UserDefaults.standard.set(email, forKey: kEmail)
                         isLoggedIn = true
+                        UserDefaults.standard.set(isLoggedIn, forKey: kIsLoggedIn)
+                        
                     }else {
                         print ("first , last and email is empty")
                     }
@@ -61,6 +64,10 @@ struct Onboarding: View {
                                         .background(Color("AccentColor"))
                                         .cornerRadius(10)
                 }
+            }
+        }.onAppear(){
+            if (UserDefaults.standard.bool(forKey: kIsLoggedIn)){
+                isLoggedIn = true
             }
         }
     }

@@ -10,15 +10,16 @@ import SwiftUI
 struct Home: View {
     var body: some View {
         TabView {
-            Text("Home")
-                .font(.title)
-                .tabItem ({
-                    Label("Home", systemImage: "house")
-                })
             Menu()
                 .font(.title)
                 .tabItem ({
                     Label("Menu", systemImage: "list.dash")
+                })
+            
+            UserProfile()
+                .font(.title)
+                .tabItem ({
+                    Label("Profile", systemImage: "square.and.pencil")
                 })
         }.navigationBarBackButtonHidden(true)
     }
