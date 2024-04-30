@@ -11,6 +11,7 @@
 		A8DA00122BDECC6600A74683 /* LittleLemonCapstoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00112BDECC6600A74683 /* LittleLemonCapstoneUITests.swift */; };
 		A8DA00142BDECC6600A74683 /* LittleLemonCapstoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00132BDECC6600A74683 /* LittleLemonCapstoneUITestsLaunchTests.swift */; };
 		A8DA00212BDECD5700A74683 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA00202BDECD5700A74683 /* Onboarding.swift */; };
+		A8DA00232BE175A400A74683 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8DA00222BE175A400A74683 /* Launch Screen.storyboard */; };
 		A8DAFFF22BDECC6400A74683 /* LittleLemonCapstoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAFFF12BDECC6400A74683 /* LittleLemonCapstoneApp.swift */; };
 		A8DAFFF42BDECC6400A74683 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAFFF32BDECC6400A74683 /* ContentView.swift */; };
 		A8DAFFF62BDECC6600A74683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8DAFFF52BDECC6600A74683 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		A8DA00112BDECC6600A74683 /* LittleLemonCapstoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonCapstoneUITests.swift; sourceTree = "<group>"; };
 		A8DA00132BDECC6600A74683 /* LittleLemonCapstoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonCapstoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A8DA00202BDECD5700A74683 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		A8DA00222BE175A400A74683 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A8DAFFEE2BDECC6400A74683 /* LittleLemonCapstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemonCapstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DAFFF12BDECC6400A74683 /* LittleLemonCapstoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonCapstoneApp.swift; sourceTree = "<group>"; };
 		A8DAFFF32BDECC6400A74683 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				A8DAFFF52BDECC6600A74683 /* Assets.xcassets */,
 				A8DAFFFA2BDECC6600A74683 /* Persistence.swift */,
 				A8DAFFFC2BDECC6600A74683 /* LittleLemonCapstone.xcdatamodeld */,
+				A8DA00222BE175A400A74683 /* Launch Screen.storyboard */,
 				A8DAFFF72BDECC6600A74683 /* Preview Content */,
 			);
 			path = LittleLemonCapstone;
@@ -254,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DA00232BE175A400A74683 /* Launch Screen.storyboard in Resources */,
 				A8DAFFF92BDECC6600A74683 /* Preview Assets.xcassets in Resources */,
 				A8DAFFF62BDECC6600A74683 /* Assets.xcassets in Resources */,
 			);
@@ -440,6 +444,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,6 +474,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
