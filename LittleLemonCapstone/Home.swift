@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct Home: View {
+    let persistenceController = PersistenceController.shared
+    //let persistence = PersistenceController()
     var body: some View {
         TabView {
             Menu()
                 .font(.title)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .tabItem ({
                     Label("Menu", systemImage: "list.dash")
                 })

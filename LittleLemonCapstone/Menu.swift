@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 
 struct Menu: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest( sortDescriptors: [NSSortDescriptor(keyPath: \Dish.title, ascending: true)],animation: .default)
+               
+        private var dishs: FetchedResults<Dish>
     func getMenuData () {
         let url = URL (string: "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json")!
         let urlRequest = URLRequest(url: url)
@@ -25,8 +30,25 @@ struct Menu: View {
             do {
                 let decoder = JSONDecoder()
                 let fullMenu = try decoder.decode(MenuList.self, from: data)
-                print(fullMenu)
-                print("here")
+                
+                // Convert the menuItem to dish
+                for item in fullMenu.menu {
+                    let dish = Dish(context: viewContext)
+                    dish.id = Int64(item.id)
+                    dish.title = item.title
+                    dish.dishDescription = item.description
+                    dish.price = item.price
+                    dish.image = item.image
+                    dish.category = item.category
+                    
+                    do{
+                        try viewContext.save()
+                        print("Item saved successfully")
+                    } catch{
+                        print("Error saving item \(error)")
+                    }
+                }
+                
                 
             } catch{
                 print("Error decoding JSON: \(error)")
@@ -42,10 +64,21 @@ struct Menu: View {
             Text("Little Lemon")
             Text("Chicago")
             Text("We are a family owned Mediterranean restaurant,focused on traditional recipes served with a modern twist. ")
-            
-            List {
-                
+
+            FetchedObjects(predicate: NSPredicate(value: true), sortDescriptors: []) { (dishes: [Dish]) in
+                List {
+                    ForEach (dishes) { dish in
+                        HStack {
+                            Text(dish.title ?? "tt")
+                            Spacer()
+                            Text(dish.price ?? "pp")
+                                .font(.callout)
+                        }
+                    }
+                    
+                }
             }
+            
         }.onAppear() {
             getMenuData()
         }
