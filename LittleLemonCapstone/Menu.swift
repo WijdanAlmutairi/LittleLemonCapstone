@@ -68,11 +68,13 @@ struct Menu: View {
             FetchedObjects(predicate: NSPredicate(value: true), sortDescriptors: []) { (dishes: [Dish]) in
                 List {
                     ForEach (dishes) { dish in
-                        HStack {
-                            Text(dish.title ?? "tt")
-                            Spacer()
-                            Text(dish.price ?? "pp")
-                                .font(.callout)
+                        NavigationLink(destination:DishDetails(dish: dish)) {
+                            HStack {
+                                Text(dish.title ?? "tt")
+                                Spacer()
+                                Text(dish.price ?? "pp")
+                                    .font(.callout)
+                            }
                         }
                     }
                     
