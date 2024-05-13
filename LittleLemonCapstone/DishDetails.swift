@@ -34,12 +34,15 @@ struct DishDetails: View {
                     print("Button Pressed")
                 }){
                     Text("Add for \(dish.price ?? "10")$")
-                        .foregroundColor(Color("PrimaryOne"))
+                        .foregroundColor(Color("AccentColor"))
                         .bold()
                         .padding(10)
                         .frame(width:UIScreen.main.bounds.width-60)
                         
-            }.buttonStyle(.borderedProminent)
+            }
+                
+                .buttonStyle(.borderedProminent)
+                .tint(Color("PrimaryOne"))
            
 
             Spacer()

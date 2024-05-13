@@ -70,9 +70,9 @@ struct Menu: View {
                     ForEach (dishes) { dish in
                         NavigationLink(destination:DishDetails(dish: dish)) {
                             HStack {
-                                Text(dish.title ?? "tt")
+                                Text(dish.title ?? "title")
                                 Spacer()
-                                Text(dish.price ?? "pp")
+                                Text(dish.price ?? "price")
                                     .font(.callout)
                             }
                         }

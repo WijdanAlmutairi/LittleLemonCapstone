@@ -52,13 +52,13 @@ struct UserProfile: View {
                 self.presentation.wrappedValue.dismiss()
             }){
                 Text("Logout")
-                    .foregroundColor(Color("PrimaryOne"))
+                    .foregroundColor(Color("AccentColor"))
                     .padding()
                     .bold()
                     .padding(.trailing, 110)
                     .padding(.leading, 110)
                 
-                    .background(Color("AccentColor"))
+                    .background(Color("PrimaryOne"))
                     .cornerRadius(10)
             }
             Spacer()
