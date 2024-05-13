@@ -12,12 +12,13 @@ import CoreData
 struct Menu: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest( sortDescriptors: [NSSortDescriptor(keyPath: \Dish.title, ascending: true)],animation: .default)
-               
-        private var dishs: FetchedResults<Dish>
+    
+    private var dishs: FetchedResults<Dish>
+    @State var searchText = ""
     func getMenuData () {
         let url = URL (string: "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json")!
         let urlRequest = URLRequest(url: url)
-                                    
+        
         let urlSession = URLSession.shared
         let task = urlSession.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
@@ -57,15 +58,18 @@ struct Menu: View {
         }
         
         task.resume()
-
+        
     }
     var body: some View {
         VStack {
             Text("Little Lemon")
             Text("Chicago")
             Text("We are a family owned Mediterranean restaurant,focused on traditional recipes served with a modern twist. ")
-
-            FetchedObjects(predicate: NSPredicate(value: true), sortDescriptors: []) { (dishes: [Dish]) in
+            TextField("Search", text: $searchText)
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                 List {
                     ForEach (dishes) { dish in
                         NavigationLink(destination:DishDetails(dish: dish)) {
@@ -78,12 +82,27 @@ struct Menu: View {
                         }
                     }
                     
-                }
+                }.listStyle(.plain)
             }
             
         }.onAppear() {
             getMenuData()
         }
+    }
+    func buildPredicate() -> NSPredicate {
+        if (searchText.isEmpty){
+            return NSPredicate(value: true)
+        }
+        return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+    }
+    
+    
+    func buildSortDescriptors() -> [NSSortDescriptor] {
+        return [
+            NSSortDescriptor(key: "title",
+                             ascending: true,
+                             selector: #selector(NSString .localizedStandardCompare))
+        ]
     }
 }
 
