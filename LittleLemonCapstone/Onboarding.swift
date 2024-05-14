@@ -24,6 +24,9 @@ struct Onboarding: View {
     var body: some View {
         NavigationView {
             VStack {
+                Image("Logo")
+                Spacer()
+                HeroSection()
                 NavigationLink(destination: Home(), isActive: $isLoggedIn){
                                 EmptyView()
                             }
@@ -39,7 +42,7 @@ struct Onboarding: View {
                 TextField(" Email", text: $email)
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                
+                Spacer()
                 Button(action: {
                     if(!firstName.isEmpty && !lastName.isEmpty && !email.isEmpty) {
                         UserDefaults.standard.set(firstName, forKey: kFirstName)
@@ -55,16 +58,18 @@ struct Onboarding: View {
                     
                 }){
                     Text("Register")
-                        .foregroundColor(Color("PrimaryOne"))
+                        .foregroundColor(Color("AccentColor"))
                         .padding()
                         .bold()
                         .padding(.trailing, 110)
                         .padding(.leading, 110)
                         
-                                        .background(Color("AccentColor"))
+                                        .background(Color("PrimaryOne"))
                                         .cornerRadius(10)
                 }
+                Spacer()
             }
+           
         }.onAppear(){
             if (UserDefaults.standard.bool(forKey: kIsLoggedIn)){
                 isLoggedIn = true

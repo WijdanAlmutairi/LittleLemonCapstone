@@ -20,7 +20,7 @@ struct UserProfile: View {
             Spacer()
             VStack {
                 Text("Personal information")
-                Image("profile-image-placeholder")
+                Image("ProfileImage")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 100)

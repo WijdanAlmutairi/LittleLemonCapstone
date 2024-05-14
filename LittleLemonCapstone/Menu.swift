@@ -62,9 +62,15 @@ struct Menu: View {
     }
     var body: some View {
         VStack {
-            Text("Little Lemon")
-            Text("Chicago")
-            Text("We are a family owned Mediterranean restaurant,focused on traditional recipes served with a modern twist. ")
+            HStack {
+                Image("Logo")
+                    .padding()
+                Image("ProfileImage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
+            }
+            HeroSection()
             TextField("Search", text: $searchText)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
