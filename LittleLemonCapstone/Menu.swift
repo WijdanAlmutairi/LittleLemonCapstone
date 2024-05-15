@@ -15,6 +15,7 @@ struct Menu: View {
     
     private var dishs: FetchedResults<Dish>
     @State var searchText = ""
+    @State var categoryText = ""
     func getMenuData () {
         let url = URL (string: "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json")!
         let urlRequest = URLRequest(url: url)
@@ -71,19 +72,99 @@ struct Menu: View {
                     .frame(width: 50, height: 50)
             }
             HeroSection()
-            TextField("Search", text: $searchText)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .overlay {
+                    TextField("Search", text: $searchText)
+                        .padding()
+                        .padding(.top, 190)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+            
+            Text("ORDER FOR DELIVERY!")
+                .bold()
+                .padding(10)
+                .frame(maxWidth:.infinity,alignment: .leading)
+            HStack {
+                // Button 1
+                Button(action: {
+                    categoryText = "starters"
+                }){
+                    Text("Starters")
+                        .foregroundColor(Color("AccentColor"))
+                        .font(.callout)
+                        .padding(15)
+                        .bold()
+                        .background(Color("SecondryThree"))
+                        .cornerRadius(20)
+                }
+                
+                // Button 2
+                Button(action: {
+                    categoryText = "mains"
+                }){
+                    Text("Mains")
+                        .foregroundColor(Color("AccentColor"))
+                        .font(.callout)
+                        .padding(15)
+                        .bold()
+                        .background(Color("SecondryThree"))
+                        .cornerRadius(20)
+                }
+                
+                // Button 3
+                Button(action: {
+                    categoryText = "desserts"
+                }){
+                    Text("Desserts")
+                        .foregroundColor(Color("AccentColor"))
+                        .font(.callout)
+                        .padding(15)
+                        .bold()
+                        .background(Color("SecondryThree"))
+                        .cornerRadius(20)
+                }
+                
+                // Button 4
+                Button(action: {
+                    categoryText = "drinks"
+                }){
+                    Text("Drinks")
+                        .foregroundColor(Color("AccentColor"))
+                        .font(.callout)
+                        .padding(15)
+                        .bold()
+                        .background(Color("SecondryThree"))
+                        .cornerRadius(20)
+                }
+                
+            }.padding(5)
             
             FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                 List {
                     ForEach (dishes) { dish in
                         NavigationLink(destination:DishDetails(dish: dish)) {
-                            HStack {
+                            VStack {
                                 Text(dish.title ?? "title")
-                                Spacer()
-                                Text(dish.price ?? "price")
-                                    .font(.callout)
+                                    .bold()
+                                    .frame(maxWidth:.infinity,alignment: .leading)
+                                    
+                                HStack {
+                                    Text(dish.dishDescription ?? "description")
+                                        .font(.callout)
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                    AsyncImage(url: URL(string: dish.image ?? "imageURL")) { image in
+                                        image.resizable()
+                                        
+                                    }placeholder: {
+                                        Color.red
+                                    }
+                                    .frame(width: 90, height: 90)
+                                    
+                                }
+                                Text("$" + (dish.price ?? "price"))
+                                    .bold()
+                                    .foregroundColor(.accentColor)
+                                    .frame(maxWidth:.infinity,alignment: .leading)
                             }
                         }
                     }
@@ -96,10 +177,14 @@ struct Menu: View {
         }
     }
     func buildPredicate() -> NSPredicate {
-        if (searchText.isEmpty){
-            return NSPredicate(value: true)
+        if (!searchText.isEmpty){
+            return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
         }
-        return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+        else if (!categoryText.isEmpty){
+            return NSPredicate(format: "category CONTAINS[cd] %@", categoryText)
+        }
+        
+        return NSPredicate(value: true)
     }
     
     

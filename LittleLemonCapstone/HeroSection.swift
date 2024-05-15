@@ -30,7 +30,8 @@ struct HeroSection: View {
                     .cornerRadius(10)
             }
         }
-        .padding(20)
+        .padding(15)
+        .padding(.bottom, 50)
         .background(Color("AccentColor"))
         
     }
