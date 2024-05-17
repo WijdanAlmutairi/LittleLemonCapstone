@@ -16,53 +16,87 @@ struct UserProfile: View {
     @Environment(\.presentationMode) var presentation
     
     var body: some View {
-        VStack{
-            Spacer()
-            VStack {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(.gray, lineWidth: 1)
+            VStack{
+                Spacer()
+                
                 Text("Personal information")
-                Image("ProfileImage")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
-            }
-            VStack(alignment: .leading) {
-                Text("First Name")
-                    .foregroundColor(.gray)
                     .bold()
-                TextField(" First Name", text: $firstName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disabled(true)
-                Text("Last Name")
-                    .foregroundColor(.gray)
-                    .bold()
-                TextField(" Last Name", text: $lastName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disabled(true)
-                
-                Text("Email")
-                    .foregroundColor(.gray)
-                    .bold()
-                TextField(" Email", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disabled(true)
-            }.padding()
-            Spacer()
-            Button(action: {
-                @AppStorage(kIsLoggedIn) var firstName = false
-                self.presentation.wrappedValue.dismiss()
-            }){
-                Text("Logout")
-                    .foregroundColor(Color("AccentColor"))
                     .padding()
-                    .bold()
-                    .padding(.trailing, 110)
-                    .padding(.leading, 110)
+                    .frame(maxWidth:.infinity,alignment: .leading)
+                Text("Avatar")
+                    .font(.callout)
+                    .foregroundColor(.gray)
+                    .padding(.leading)
+                    .frame(maxWidth:.infinity,alignment: .leading)
+                HStack {
+                    Image("ProfileImage")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 90, height: 90)
+                        .padding(.leading)
+                    Button(action: {
+                        print("Button Pressed")
+                    }){
+                        Text("Change")
+                            .font(.callout)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color("AccentColor"))
+                            .cornerRadius(10)
+                    }
+                    Button(action: {
+                        print("Button Pressed")
+                    }){
+                        Text("Remove")
+                            .font(.callout)
+                            .foregroundColor(.gray)
+                            .padding()
+                            .background(.white)
+                            .border(Color("AccentColor"))
+                    }
+                }
                 
-                    .background(Color("PrimaryOne"))
-                    .cornerRadius(10)
+                VStack(alignment: .leading) {
+                    Text("First Name")
+                        .foregroundColor(.gray)
+                        .bold()
+                    TextField(" First Name", text: $firstName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disabled(true)
+                    Text("Last Name")
+                        .foregroundColor(.gray)
+                        .bold()
+                    TextField(" Last Name", text: $lastName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disabled(true)
+                    
+                    Text("Email")
+                        .foregroundColor(.gray)
+                        .bold()
+                    TextField(" Email", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disabled(true)
+                }.padding()
+                Spacer()
+                Button(action: {
+                    @AppStorage(kIsLoggedIn) var firstName = false
+                    self.presentation.wrappedValue.dismiss()
+                }){
+                    Text("Logout")
+                        .foregroundColor(Color("AccentColor"))
+                        .padding()
+                        .bold()
+                        .padding(.trailing, 110)
+                        .padding(.leading, 110)
+                        .background(Color("PrimaryOne"))
+                        .cornerRadius(10)
+                }
+                Spacer()
             }
-            Spacer()
-        }
+        }.padding(10)
     }
 }
 
