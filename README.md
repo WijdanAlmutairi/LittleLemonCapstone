@@ -13,3 +13,4 @@ The Figma file for this project [Figma File](https://www.figma.com/design/XfBqq5
 - Swift Version: 5.10
 
 ## Installation
+`git clone https://github.com/WijdanAlmutairi/LittleLemonCapstone.git`
