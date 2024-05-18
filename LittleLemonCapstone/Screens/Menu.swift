@@ -45,7 +45,6 @@ struct Menu: View {
                     
                     do{
                         try viewContext.save()
-                        print("Item saved successfully")
                     } catch{
                         print("Error saving item \(error)")
                     }

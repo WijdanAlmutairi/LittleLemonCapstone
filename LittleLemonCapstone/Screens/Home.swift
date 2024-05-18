@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Home: View {
     let persistenceController = PersistenceController.shared
-    //let persistence = PersistenceController()
     var body: some View {
         TabView {
             Menu()

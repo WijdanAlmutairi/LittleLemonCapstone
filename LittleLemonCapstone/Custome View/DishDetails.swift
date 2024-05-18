@@ -51,6 +51,3 @@ struct DishDetails: View {
     }
 }
 
-//#Preview {
-//    DishDetails(dish: <#Dish#>)
-//}
